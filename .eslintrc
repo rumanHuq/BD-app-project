@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["flowtype"],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "rules": {
+    "flowtype/no-types-missing-file-annotation": 0
+  }
+}
