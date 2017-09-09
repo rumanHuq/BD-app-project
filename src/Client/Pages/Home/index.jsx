@@ -28,7 +28,7 @@ const Home = styled.div`
 
 const Panel = styled.div`
   align-items: center;
-  background-image: ${(props) => {
+  background: ${(props) => {
     /* eslint-disable */
     if (props.panel1) return 'url(' + require('../../../Assets/4.jpg') + ')';
     if (props.panel2) return 'url(' + require('../../../Assets/2.jpg') + ')';
@@ -48,10 +48,6 @@ const Panel = styled.div`
     color: #fff;
     font-family: 'Tillana', cursive;
     font-size: ${em(64, 16)};
-  }
-
-  :hover {
-    flex: 1.1;
   }
 
   > a {
@@ -76,6 +72,10 @@ const Panel = styled.div`
 
     h2 {
       font-size: ${em(32, 16)};
+    }
+
+    :hover {
+      flex: 1.05;
     }
   }
 `;
