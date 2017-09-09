@@ -41,7 +41,6 @@ const common = {
   output: {
     filename: `${Platform}.js`,
     path: resolve(__dirname, '..', 'dist', Platform),
-    publicPath: `/${Platform}/`,
   },
   plugins: [
     new WebpackCopyPlugin(Server ? [WebpackCopySetting] : []),

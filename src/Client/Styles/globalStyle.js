@@ -1,6 +1,7 @@
 // @flow
 
 const globalStyle = `
+  @import url('https://fonts.googleapis.com/css?family=Tillana:800');
   html, body{
     margin: 0;
     padding: 0;
@@ -9,7 +10,9 @@ const globalStyle = `
       box-sizing: border-box
     }
   }
-
+  a {
+    text-decoration: none
+  }
 `;
 
 export default globalStyle;

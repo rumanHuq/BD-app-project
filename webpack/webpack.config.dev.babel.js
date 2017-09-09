@@ -34,6 +34,7 @@ const dev = {
       },
     ],
   },
+  output: {},
   plugins: [
     new StyleLintPlugin({
       configFile: resolve(__dirname, '..', '.stylelintrc'),
@@ -46,5 +47,6 @@ const dev = {
 // Platform specific plugin
 if (Client) {
   dev.plugins.push(new Webpack.HotModuleReplacementPlugin(), new Webpack.NamedModulesPlugin());
+  dev.output.publicPath = `/${Client}/`;
 }
 export default dev;

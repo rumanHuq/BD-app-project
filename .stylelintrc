@@ -1,7 +1,8 @@
 {
   "extends": ["stylelint-config-sass-guidelines", "stylelint-config-styled-components"],
   "rules": {
-    "max-nesting-depth": 2
+    "max-nesting-depth": 5,
+    "selector-max-compound-selectors": 5
   },
   "ignoreFiles": ["./node_modules/**", "./flow-typed/**", "./dist/**", "./.vscode/**"],
   "processors": ["stylelint-processor-styled-components"]
