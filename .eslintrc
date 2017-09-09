@@ -15,6 +15,7 @@
   "plugins": ["flowtype"],
   "extends": ["airbnb", "plugin:flowtype/recommended"],
   "rules": {
-    "flowtype/no-types-missing-file-annotation": 0
+    "flowtype/no-types-missing-file-annotation": 0,
+    "global-require": 0
   }
 }

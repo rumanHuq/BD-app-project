@@ -1,6 +1,7 @@
 // @flow
 
 const globalStyle = `
+  @import url('https://fonts.googleapis.com/css?family=Tillana:800');
   html, body{
     margin: 0;
     padding: 0;
