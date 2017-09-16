@@ -7,3 +7,5 @@ flow-typed/npm
 __snapshots__
 
 yarn.lock
+
+locales

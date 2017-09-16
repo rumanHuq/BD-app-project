@@ -2,7 +2,6 @@ import NodeExternals from 'webpack-node-externals';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
-import OfflinePlugin from 'offline-plugin';
 import WebpackCopyPlugin from 'copy-webpack-plugin';
 import { Client, Server } from './webpack.config.platform';
 import { WebpackCopySetting } from './webpack.config.properties';
@@ -64,7 +63,6 @@ if (Client) {
       hash: true,
       template: resolve(__dirname, '..', 'src', 'index.html'),
     }),
-    new OfflinePlugin(),
   );
 }
 // bundled file uses output.publicPath as context

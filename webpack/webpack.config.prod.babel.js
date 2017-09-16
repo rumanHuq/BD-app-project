@@ -1,6 +1,7 @@
 import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import UglifyJs from 'uglifyjs-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
 
 export default {
   resolve: {
@@ -45,5 +46,6 @@ export default {
       threshold: 10240,
       minRatio: 0.8,
     }),
+    // new OfflinePlugin(),
   ],
 };
