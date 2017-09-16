@@ -3,12 +3,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setLocale } from './actions';
+import { setLocale } from '../../../Actions-n-Reducers/language';
 import LanguageMenu from './style';
 
 class Language extends Component {
   componentWillMount() {
-    this.props.setLocale('En');
+    const locale = (navigator.languages && navigator.languages[0]) || navigator.language || 'bn';
+    this.props.setLocale(locale);
   }
 
   setLanguage = (e: KeyboardEvent) =>
@@ -17,6 +18,7 @@ class Language extends Component {
   props: {
     setLocale: Function,
     locale: string,
+    getLocale: Function,
   };
 
   render() {
@@ -33,13 +35,13 @@ class Language extends Component {
     return (
       <LanguageMenu>
         <li>
-          <p>{this.props.locale}</p>
+          <p>{this.props.locale.startsWith('en-US') ? 'En' : this.props.locale}</p>
         </li>
         <li>
-          <span onClick={this.setLanguage}>বাংলা</span>
+          <span onClick={e => this.setLanguage(e) && this.props.getLocale('বাং')}>বাংলা</span>
         </li>
         <li>
-          <span onClick={this.setLanguage}>English</span>
+          <span onClick={e => this.setLanguage(e) && this.props.getLocale('En')}>English</span>
         </li>
       </LanguageMenu>
     );
