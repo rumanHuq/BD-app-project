@@ -2,6 +2,7 @@ import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import UglifyJs from 'uglifyjs-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
+import chalk from 'chalk';
 
 export default {
   resolve: {
@@ -49,3 +50,5 @@ export default {
     // new OfflinePlugin(),
   ],
 };
+
+console.log(`${chalk.red('⚠️️️️️️️ ⚠️ OFFLINE PLUGIN NOT IMPLEMENTED')} ⚠️️️️️️️ ⚠️`);

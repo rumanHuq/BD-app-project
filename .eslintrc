@@ -13,10 +13,16 @@
     "sourceType": "module"
   },
   "plugins": ["flowtype"],
+
   "extends": ["airbnb", "plugin:flowtype/recommended"],
   "rules": {
     "flowtype/no-types-missing-file-annotation": 0,
     "global-require": 0,
     "jsx-a11y/no-static-element-interactions": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
   }
 }

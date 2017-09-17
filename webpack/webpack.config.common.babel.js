@@ -46,6 +46,10 @@ const common = {
     new FriendlyErrorsWebpackPlugin(),
   ],
   resolve: {
+    modules: [resolve(__dirname, '..', 'src', 'Client'), resolve(__dirname, '..', 'node_modules')],
+    alias: {
+      root: './src/Client/', // doesn't work
+    },
     extensions: ['.js', '.jsx', '.json'],
   },
   stats: {

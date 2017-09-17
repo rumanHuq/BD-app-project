@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import LanguageMenu from './Language-menu';
-import { Border, H2 } from '../../Styles/Typography';
+import { Border, H2 } from '../../../../Styles/Typography';
 import { Home, Panel } from './Style';
 
 export default (props: { getLocale: Function }) => (

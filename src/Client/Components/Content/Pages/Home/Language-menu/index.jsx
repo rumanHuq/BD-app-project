@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setLocale } from '../../../Actions-n-Reducers/language';
+import { setLocale } from '../../../../../Actions-n-Reducers/language';
 import LanguageMenu from './style';
 
 class Language extends Component {

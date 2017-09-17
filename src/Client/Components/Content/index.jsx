@@ -12,7 +12,7 @@ import { setLocale } from '../../Actions-n-Reducers/language';
 import flattenMessages from '../../Language/flattenMessage';
 import messages from '../../Language/messages';
 
-import Home from '../../Pages/Home';
+import Home from './Pages/Home';
 
 import Header from '../../Components/Header';
 import Sidebar from '../../Components/Sidebar';
