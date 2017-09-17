@@ -1,5 +1,6 @@
 // @flow
-
+// absolute import is implemented, but relative-import is recommended
+// as VSCODE can jump into file in relative imports
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
