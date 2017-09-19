@@ -1,7 +1,9 @@
+import { DefinePlugin } from 'webpack';
 import NodeExternals from 'webpack-node-externals';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
+
 import WebpackCopyPlugin from 'copy-webpack-plugin';
 import { Client, Server } from './webpack.config.platform';
 import { WebpackCopySetting } from './webpack.config.properties';
@@ -42,6 +44,9 @@ const common = {
     path: resolve(__dirname, '..', 'dist', Platform),
   },
   plugins: [
+    new DefinePlugin({
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    }),
     new WebpackCopyPlugin(Server ? [WebpackCopySetting] : []),
     new FriendlyErrorsWebpackPlugin(),
   ],
