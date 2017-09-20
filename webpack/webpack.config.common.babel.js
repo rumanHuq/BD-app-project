@@ -3,6 +3,7 @@ import NodeExternals from 'webpack-node-externals';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
+import DotEnv from 'dotenv-webpack';
 
 import WebpackCopyPlugin from 'copy-webpack-plugin';
 import { Client, Server } from './webpack.config.platform';
@@ -48,6 +49,9 @@ const common = {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     }),
     new WebpackCopyPlugin(Server ? [WebpackCopySetting] : []),
+    new DotEnv({
+      path: resolve(__dirname, '..', '.env'),
+    }),
     new FriendlyErrorsWebpackPlugin(),
   ],
   resolve: {
