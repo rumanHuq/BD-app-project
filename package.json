@@ -74,8 +74,10 @@
     "animated": "^0.2.0",
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "flash": "^1.1.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.11.12",
@@ -99,7 +101,8 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "semantic-ui-react": "^0.73.0",
-    "styled-components": "^2.1.2"
+    "styled-components": "^2.1.2",
+    "validator": "^8.2.0"
   },
   "jest": {
     "snapshotSerializers": [

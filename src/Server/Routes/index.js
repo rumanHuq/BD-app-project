@@ -1,5 +1,5 @@
 import DriverController from '../Controllers';
-import { asyncErrorHandler } from '../utils/helpers';
+import { asyncErrorHandler } from '../utils/errorHandler';
 
 export default (Router) => {
   Router.route('/')
