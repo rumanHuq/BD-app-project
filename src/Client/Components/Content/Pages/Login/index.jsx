@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import isEmail from 'validator/lib/isEmail';
+import { isEmpty } from 'lodash';
 
 import toEM from '../../../../Styles/helpers';
 
@@ -93,6 +94,7 @@ export default class extends Component {
       error.password = 'Password Should be minimum of 8 charaacter';
     }
     this.setState({ error });
+    if (isEmpty(this.state.error)) console.log('no error, good to go!');
   };
   email: { value: string };
   password: { value: string };
@@ -107,7 +109,7 @@ export default class extends Component {
   render() {
     return (
       <Login onSubmit={this.onSubmit}>
-        <form className="flex-wrapper">
+        <form>
           <h2>Login</h2>
           <div className="input-group">
             <input
