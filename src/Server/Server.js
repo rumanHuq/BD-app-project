@@ -30,10 +30,10 @@ app.use(
     cookie: { secure: true },
   }),
 );
-app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(resolve(__dirname, '..', 'Client')));
+app.use(flash());
 app.use(helpers); // called before invoking express.Router(); otherwise doesnt work
 
 const Router = express.Router();
@@ -46,8 +46,7 @@ app.get('/api/error', (req, res) => res.render('404'));
 // global middleware usage:AFTER
 const ENV = NODE_ENV;
 app.use(pageNotFound);
-if (ENV === 'dev') app.use(developmentErrors);
-if (ENV === 'prod') app.use(productionErrors);
+app.use(ENV === 'dev' ? developmentErrors : productionErrors);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(black.bgYellow('🌏 🌏 🌏  Server running on Port: ', PORT, '🌏 🌏 🌏 ')),

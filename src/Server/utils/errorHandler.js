@@ -8,12 +8,14 @@ export const pageNotFound = (req, res, next) => {
   next(err);
 };
 
-export const developmentErrors = (err, req, res) => {
+export const developmentErrors = (err, req, res, next) => {
   const status = err.status || 500;
-  res.render('404', { message: err.message, status, stack: err.stack });
+  res.render('error', { message: err.message, status, stack: err.stack });
+  next();
 };
 
-export const productionErrors = (err, req, res) => {
+export const productionErrors = (err, req, res, next) => {
   const status = err.status || 500;
-  res.render('404', { message: err.message, status, stack: 'Production Mode' });
+  res.render('error', { message: err.message, status, stack: 'Production Mode' });
+  next();
 };

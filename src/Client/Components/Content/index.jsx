@@ -14,6 +14,7 @@ import flattenMessages from '../../Language/flattenMessage';
 import messages from '../../Language/messages';
 
 import Home from './Pages/Home';
+import Login from './Pages/Login';
 
 import Header from '../../Components/Header';
 import Sidebar from '../../Components/Sidebar';
@@ -56,6 +57,7 @@ class Content extends Component {
           <article>
             <Switch>
               <Route exact path="/" render={() => <Home getLocale={getLocale} />} />
+              <Route path="/login" component={Login} />
               <Route render={NestedRouter} />
             </Switch>
           </article>
