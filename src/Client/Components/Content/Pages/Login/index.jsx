@@ -2,18 +2,26 @@
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import isEmail from 'validator/lib/isEmail';
 
 import toEM from '../../../../Styles/helpers';
 
-const Login = styled.form`
+const Login = styled.div`
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
+  margin: auto;
+  width: ${toEM(500)};
+
+  form {
+    width: inherit;
+  }
 
   .input-group {
     margin-top: ${toEM(28)};
     position: relative;
+    width: 100%;
   }
 
   input {
@@ -21,6 +29,7 @@ const Login = styled.form`
     border: ${toEM(1)} solid ${({ theme }) => theme.green};
     display: inline-block;
     font-size: ${toEM(18)};
+    width: 100%;
 
     &:focus,
     &:active {
@@ -60,15 +69,33 @@ const Login = styled.form`
     pointer-events: none;
     position: absolute;
   }
+
+  span {
+    color: ${({ theme }) => theme.red};
+  }
 `;
 export default class extends Component {
   state = {
-    error: {},
+    error: {
+      email: '',
+      password: '',
+    },
     input: {
       email: '',
       password: '',
     },
   };
+  onSubmit = (e: KeyboardEvent) => {
+    const error = {};
+    e.preventDefault();
+    if (!isEmail(this.state.input.email)) error.email = 'Please Provide a Valid Email';
+    if (this.state.input.password.length < 8) {
+      error.password = 'Password Should be minimum of 8 charaacter';
+    }
+    this.setState({ error });
+  };
+  email: { value: string };
+  password: { value: string };
   renderInput = () => {
     this.setState({
       input: {
@@ -79,13 +106,13 @@ export default class extends Component {
   };
   render() {
     return (
-      <Login>
-        <div className="flex-wrapper">
+      <Login onSubmit={this.onSubmit}>
+        <form className="flex-wrapper">
           <h2>Login</h2>
           <div className="input-group">
             <input
-              ref={(node) => {
-                this.email = node;
+              ref={(element) => {
+                this.email = element;
               }}
               type="text"
               name="email"
@@ -96,6 +123,7 @@ export default class extends Component {
             />
             <label htmlFor="email">E-mail:</label>
           </div>
+          <span>{this.state.error.email && this.state.error.email} &nbsp;</span>
           <div className="input-group">
             <input
               ref={(node) => {
@@ -110,8 +138,9 @@ export default class extends Component {
             />
             <label htmlFor="password">Password:</label>
           </div>
-          <input type="submit" value="Login" />
-        </div>
+          <span>{this.state.error.password && this.state.error.password} &nbsp;</span>
+          <input type="submit" value="Yup!!" />
+        </form>
       </Login>
     );
   }
