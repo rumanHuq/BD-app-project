@@ -1,7 +1,7 @@
 // @flow
 
 import styled from 'styled-components';
-import em from '../../Styles/helpers';
+import em from '../../../../Styles/helpers';
 
 export const Home = styled.div`
   display: flex;
@@ -18,9 +18,9 @@ export const Panel = styled.div`
   align-items: center;
   background: ${(props: { panel1: string, panel2: string, panel3: string }) => {
     /* eslint-disable */
-    if (props.panel1) return 'url(' + require('../../../Assets/4.jpg') + ')';
-    if (props.panel2) return 'url(' + require('../../../Assets/2.jpg') + ')';
-    if (props.panel3) return 'url(' + require('../../../Assets/3.jpg') + ')';
+    if (props.panel1) return 'url(' + require('../../../../Assets/4.jpg') + ')';
+    if (props.panel2) return 'url(' + require('../../../../Assets/2.jpg') + ')';
+    if (props.panel3) return 'url(' + require('../../../../Assets/3.jpg') + ')';
     /* eslint-enable */
     return 'red';
   }};

@@ -2,6 +2,8 @@ import CompressionPlugin from 'compression-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import UglifyJs from 'uglifyjs-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
+import chalk from 'chalk';
+import BabelMinify from 'babel-minify-webpack-plugin';
 
 export default {
   resolve: {
@@ -36,6 +38,9 @@ export default {
   },
   plugins: [
     new ExtractTextPlugin('./css/styles.css'),
+    new BabelMinify({
+      removeConsole: true,
+    }),
     new UglifyJs({
       sourceMap: true,
     }),
@@ -49,3 +54,5 @@ export default {
     // new OfflinePlugin(),
   ],
 };
+
+console.log(`${chalk.red('⚠️️️️️️️ ⚠️ OFFLINE PLUGIN NOT IMPLEMENTED')} ⚠️️️️️️️ ⚠️`);

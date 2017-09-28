@@ -2,19 +2,20 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import LanguageMenu from './Language-menu';
-import { Border, H2 } from '../../Styles/Typography';
+import { Border, H2 } from '../../../../Styles/Typography';
 import { Home, Panel } from './Style';
 
-export default () => (
+export default (props: { getLocale: Function }) => (
   <Home>
-    <LanguageMenu />
+    <LanguageMenu getLocale={props.getLocale} />
     <Panel panel1>
       <NavLink to="immigration">
         <H2>
           <i className="fa fa-globe" aria-hidden="true" />
-          Immigration
+          <FormattedMessage id="indexPage.immigration" />
         </H2>
       </NavLink>
       <Border />
@@ -23,7 +24,7 @@ export default () => (
       <NavLink to="events">
         <H2>
           <i className="fa fa-calendar-check-o" aria-hidden="true" />
-          Local Events
+          <FormattedMessage id="indexPage.events" />
         </H2>
       </NavLink>
       <Border />
@@ -32,7 +33,7 @@ export default () => (
       <NavLink to="jobs">
         <H2>
           <i className="fa fa-briefcase" aria-hidden="true" />
-          Job Board
+          <FormattedMessage id="indexPage.jobs" />
         </H2>
       </NavLink>
       <Border />

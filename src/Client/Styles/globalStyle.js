@@ -18,4 +18,5 @@ export const globalStyle = `
 export const theme = {
   red: '#fc354c;',
   white: '#fff',
+  green: '#9FCC2E',
 };
