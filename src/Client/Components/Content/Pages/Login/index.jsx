@@ -75,7 +75,18 @@ const Login = styled.div`
     color: ${({ theme }) => theme.red};
   }
 `;
-export default class extends Component {
+
+type State = {
+  error: {
+    email: string,
+    password: string,
+  },
+  input: {
+    email: string,
+    password: string,
+  },
+};
+export default class extends Component<*, State> {
   state = {
     error: {
       email: '',
@@ -98,11 +109,14 @@ export default class extends Component {
   };
   email: { value: string };
   password: { value: string };
+  node: {
+    value: string,
+  };
   renderInput = () => {
     this.setState({
       input: {
-        email: this.email.value || '',
-        password: this.password.value || '',
+        email: this.email.value,
+        password: this.password.value,
       },
     });
   };
@@ -112,33 +126,39 @@ export default class extends Component {
         <form>
           <h2>Login</h2>
           <div className="input-group">
-            <input
-              ref={(element) => {
-                this.email = element;
-              }}
-              type="text"
-              name="email"
-              id="email"
-              className={this.state.input.email && 'has-value'}
-              onChange={this.renderInput}
-              value={this.state.input.email}
-            />
-            <label htmlFor="email">E-mail:</label>
+            <label htmlFor="email">
+              <input
+                ref={node => {
+                  // $FlowFixMe
+                  this.email = node;
+                }}
+                type="text"
+                name="email"
+                id="email"
+                className={this.state.input.email && 'has-value'}
+                onChange={this.renderInput}
+                value={this.state.input.email}
+              />
+              E-mail:
+            </label>
           </div>
           <span>{this.state.error.email && this.state.error.email} &nbsp;</span>
           <div className="input-group">
-            <input
-              ref={(node) => {
-                this.password = node;
-              }}
-              type="password"
-              name="password"
-              id="password"
-              className={this.state.input.password && 'has-value'}
-              onChange={this.renderInput}
-              value={this.state.input.password}
-            />
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">
+              <input
+                ref={node => {
+                  // $FlowFixMe
+                  this.password = node;
+                }}
+                type="password"
+                name="password"
+                id="password"
+                className={this.state.input.password && 'has-value'}
+                onChange={this.renderInput}
+                value={this.state.input.password}
+              />
+              Password:
+            </label>
           </div>
           <span>{this.state.error.password && this.state.error.password} &nbsp;</span>
           <input type="submit" value="Yup!!" />

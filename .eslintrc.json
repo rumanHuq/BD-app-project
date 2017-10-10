@@ -12,9 +12,9 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["flowtype"],
+  "plugins": ["flowtype", "prettier"],
 
-  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "extends": ["airbnb", "prettier", "prettier/react", "plugin:flowtype/recommended"],
   "rules": {
     "flowtype/no-types-missing-file-annotation": 0,
     "global-require": 0,
@@ -25,5 +25,8 @@
     "import/resolver": {
       "babel-module": {}
     }
+  },
+  "globals": {
+    "cy": true
   }
 }

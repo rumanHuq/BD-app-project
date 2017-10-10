@@ -1,5 +1,6 @@
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import Webpack from 'webpack';
+import FlowtypePlugin from 'flowtype-loader/plugin';
 import { resolve } from 'path';
 import { entry, devServer } from './webpack.config.properties';
 import { Client } from './webpack.config.platform';
@@ -30,12 +31,13 @@ const dev = {
         enforce: 'pre',
         test: /.jsx?$/,
         exclude: /node_modules/,
-        use: ['eslint-loader', 'stylelint-custom-processor-loader'],
+        use: ['flowtype-loader', 'eslint-loader', 'stylelint-custom-processor-loader'],
       },
     ],
   },
   output: {},
   plugins: [
+    new FlowtypePlugin(),
     new StyleLintPlugin({
       configFile: resolve(__dirname, '..', '.stylelintrc'),
       files: ['../src/Client/**/*.sass', '../src/Client/**/*.scss', '../src/Client/**/*.css'],

@@ -1,5 +1,7 @@
+// @flow
+
 /* eslint-disable */
-const flattenMessages = (nestedMessages, prefix = '') => {
+const flattenMessages = (nestedMessages: {}, prefix: string = ''): {} => {
   return Object.keys(nestedMessages).reduce((messages, key) => {
     const value = nestedMessages[key];
     const prefixedKey = prefix ? `${prefix}.${key}` : key;

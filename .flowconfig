@@ -4,10 +4,16 @@
 .*/node_modules/styled-components/.*
 .*/node_modules/stylelint/.*
 .*/node_modules/react-motion/.*
+.*/node_modules/react-tap-event-plugin/.*
 [include]
 
 [libs]
-
+animated
+preact
+styled-components
+stylelint
+react-motion
+react-tap-event-plugin
 [lints]
 
 [options]

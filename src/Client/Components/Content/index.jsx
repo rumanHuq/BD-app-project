@@ -27,7 +27,7 @@ const Page = styled.section`
 
 let locale = (navigator.languages && navigator.languages[0]) || navigator.language || 'bn';
 addLocaleData([...en, ...bn]);
-const getLocale = (language) => {
+const getLocale = language => {
   locale = language === 'En' ? 'en-US' : 'bn';
   return locale;
 };
@@ -48,7 +48,7 @@ const NestedRouter = () => (
   </Router>
 );
 
-class Content extends Component {
+class Content extends Component<void> {
   componentWillMount() {}
   render() {
     return (

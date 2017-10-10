@@ -35,6 +35,13 @@ const LanguageMenu = styled.ul`
       :hover {
         color: ${({ theme }) => theme.red};
       }
+
+      button {
+        background: 0;
+        border: 0;
+        color: inherit;
+        font-family: inherit;
+      }
     }
   }
 

@@ -1,3 +1,5 @@
+// @flow
+
 export default {
   'en-US': {
     indexPage: {
